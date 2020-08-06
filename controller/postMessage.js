@@ -20,20 +20,9 @@ exports.postmassage = function (req, res, next) {
 
 
 exports.getmassage = function (req, res, next) {
-    Message.find({},  function(err, user) {
+    Message.find({},  function(err, message) {
         if(err) return next(err)
-
-        res.json(user)
-    })
-    res.json()
-    const message = new Message({
-        name: name,
-        content: content
-    })
-
-    message.save((err) => {
-        if (err) { return next(err) }
-        res.json({ response: 'successfully post a message'})
+        res.send(message)
     })
 }
 
