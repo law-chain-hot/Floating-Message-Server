@@ -5,7 +5,7 @@ exports.postmassage = function (req, res, next) {
     const name = req.body.name
     const content = req.body.content
 
-    if(content === '') return res.status(422).send({ error: 'You must post a non-empty message' })
+    if(content === '' || name === '') return res.status(422).send({ error: 'You must post a non-empty message' })
 
     const message = new Message({
         name: name,
