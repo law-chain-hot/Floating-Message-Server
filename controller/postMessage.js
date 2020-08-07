@@ -9,7 +9,8 @@ exports.postmassage = function (req, res, next) {
 
     const message = new Message({
         name: name,
-        content: content
+        content: content,
+        like: 0
     })
 
     message.save((err) => {
@@ -23,6 +24,18 @@ exports.getmassage = function (req, res, next) {
     Message.find({},  function(err, message) {
         if(err) return next(err)
         res.send(message)
+    })
+}
+
+exports.like = function (req, res, next) {
+    const id = req.body.id
+    const like = (parseInt(req.body.like) + 1).toString()
+    console.log("exports.like -> like", like)
+
+    Message.findOneAndUpdate({_id : id}, {like: like}, function(err, message) {
+        console.log("exports.like -> message", message)
+        if(err) return next(err)
+        res.json({ response: 'successfully add one like'})
     })
 }
 

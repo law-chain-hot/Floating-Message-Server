@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 // Define our model
 const messageSchema = new Schema({
   name: String,
-  content: String
+  content: String,
+  like: Number,
 });
 
 // On Save Hook, encrypt password
