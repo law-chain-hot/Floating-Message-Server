@@ -17,7 +17,7 @@ module.exports = function (app) {
 
 
     app.get('/', requireAuth, function (req, res) {
-        res.send({ hi: req.user });
+        res.send({ hi: req.user.email });
     });
     app.get('/getmessage', Message.getmassage)
 
