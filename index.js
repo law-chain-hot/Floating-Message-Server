@@ -45,3 +45,10 @@ const server = http.createServer(app)
 server.listen(port)
 
 console.log('Server is listening: ', port)
+
+
+
+// // test
+// db.once('open' function callback() {
+//     db.db.command({})
+// })
